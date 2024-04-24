@@ -27,4 +27,6 @@ if p1.exists():
         # Lê e imprime o conteúdo do arquivo
         print(file.read())
         
-        
+
+p2 = Path('dados')
+print(list(p2.iterdir()))
