@@ -19,6 +19,12 @@ print(p1.stem)
 
 print(p1.suffix)
 
-# Verifica se o arquivo existe
 
-print(p1.exists)
+# Verifica se o arquivo existe
+if p1.exists():
+    # Se existir, abre o arquivo para leitura
+    with open(p1, 'r', encoding='utf-8') as file:
+        # Lê e imprime o conteúdo do arquivo
+        print(file.read())
+        
+        
