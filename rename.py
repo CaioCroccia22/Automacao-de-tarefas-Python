@@ -15,4 +15,6 @@ root_dir = Path('files')
 
 file_paths = root_dir.glob('**/*')
 for path in file_paths:
-    print(path)
+    if path.is_file():
+        print(path)
+        print(path.parts[-2])
