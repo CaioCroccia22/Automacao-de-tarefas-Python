@@ -1,0 +1,8 @@
+Organizador de arquivos 
+
+O desafio é criar um programa em python que organiza arquivos de acordo com os seguintes tipos de arquivos
+-exe
+-csv
+-jpg
+-pdf
+-zip
