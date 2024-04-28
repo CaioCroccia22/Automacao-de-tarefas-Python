@@ -1,0 +1,10 @@
+Automação de emails
+
+1)Envio de emails para multiplos destinatários
+
+2) Leitura de emails
+
+3) Customização de mensagens por emails
+
+4) Envio de E-mails em Horários especificos
+
