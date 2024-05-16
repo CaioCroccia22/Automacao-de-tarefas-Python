@@ -34,6 +34,22 @@ def split_pdf(pdf_path):
                 writer.write(output_pdf)
             print(f'Page {page_num + 1} saved as {output_filename}')
 
+
+def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
+    with (open(pdf_path, 'rb')):
+        reader = PdfReader()
+        writer = PdfWriter()
+        for page_num in range(start_page, stop_page):
+            selected_page = reader.pages[page_num]
+            writer.add_page(selected_page)
+            filename = os.path.split(pdf_path)
+
+
+
+
+
+
+
 # 1 - Buscando Dados e Metadados de um arquivo PDF
 # print(get_pdf_metadata('files/Diploma.pdf'))
 # print(get_pdf_metadata('files/Diploma.pdf'))
