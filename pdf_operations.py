@@ -36,14 +36,18 @@ def split_pdf(pdf_path):
 
 
 def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
-    with (open(pdf_path, 'rb')):
-        reader = PdfReader()
+    with(open(pdf_path, 'rb')) as f:
+        reader = PdfReader(f)
         writer = PdfWriter()
         for page_num in range(start_page, stop_page):
             selected_page = reader.pages[page_num]
             writer.add_page(selected_page)
-            filename = os.path.split(pdf_path)
-
+            filename = os.path.split(pdf_path)[1]
+            # print(start_page)
+            # print(stop_page)
+            new_filename = f'files/{filename}_from_{start_page}_to_{stop_page}.pdf'
+            with open(new_filename, 'wb') as out:
+                writer.write(out)
 
 
 
@@ -56,4 +60,8 @@ def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
 # print(extract_text_from_pdf('files/Diploma.pdf'))
 
 # 2 - Dividindo pdf por página
-split_pdf('files/Diploma.pdf')
+# split_pdf('files/Diploma.pdf')
+
+
+# 3 - Dividindo o PDF por página selecionada
+split_pdf_page('files/Diploma.pdf',1,2)
