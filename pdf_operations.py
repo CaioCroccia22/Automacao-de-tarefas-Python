@@ -1,5 +1,5 @@
 import PyPDF2 as pdf
-from PyPDF2 import PdfReader, PdfWriter
+from PyPDF2 import PdfReader, PdfWriter, PdfMerger
 import os
 
 def get_pdf_metadata(pdf_path):
@@ -51,7 +51,12 @@ def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
 
 
 
-
+def merge_pdf(list_pdfs, output_filename='files/final_pdf.pdf'):
+    merger = PdfMerger()
+    with open(output_filename, 'wb') as f:
+        for file in list_pdfs:
+            merger.append(file)
+        merger.write(f)
 
 
 # 1 - Buscando Dados e Metadados de um arquivo PDF
@@ -64,4 +69,8 @@ def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
 
 
 # 3 - Dividindo o PDF por página selecionada
-split_pdf_page('files/Diploma.pdf',1,2)
+# split_pdf_page('files/Diploma.pdf',1,2)
+
+
+# Unido os PDFS
+merge_pdf(['files/page_1.pdf','files/page_1.pdf'])
