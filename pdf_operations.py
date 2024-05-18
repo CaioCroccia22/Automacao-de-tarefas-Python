@@ -57,8 +57,19 @@ def merge_pdf(list_pdfs, output_filename='files/final_pdf.pdf'):
         for file in list_pdfs:
             merger.append(file)
         merger.write(f)
+        
+        
 
-
+def rotate_pdf(pdf_path, page_num: int, rotation: int=90):
+    with open(pdf_path, 'rb') as f:
+        reader = PdfReader(f)
+        writer = PdfWriter()
+        writer.add_page(reader.pages[page_num])
+        writer.pages[page_num].rotate(rotation)
+        filename = os.path.split(pdf_path)[1]
+        new_filename = f'files/{filename}_{rotation}_page_rotated.pdf'
+        with open(new_filename, 'wb') as out:
+            writer.write(out)
 # 1 - Buscando Dados e Metadados de um arquivo PDF
 # print(get_pdf_metadata('files/Diploma.pdf'))
 # print(get_pdf_metadata('files/Diploma.pdf'))
@@ -74,3 +85,6 @@ def merge_pdf(list_pdfs, output_filename='files/final_pdf.pdf'):
 
 # Unido os PDFS
 merge_pdf(['files/page_1.pdf','files/page_1.pdf'])
+
+# 5 - Rotacionando PDF
+rotate_pdf('files/page_1.pdf', 0, 180)
