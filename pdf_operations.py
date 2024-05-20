@@ -70,6 +70,19 @@ def rotate_pdf(pdf_path, page_num: int, rotation: int=90):
         new_filename = f'files/{filename}_{rotation}_page_rotated.pdf'
         with open(new_filename, 'wb') as out:
             writer.write(out)
+            
+            
+            
+# Função para extrair imagens do PDF
+def extract_images_from_pdf(pdf_path):
+    with open(pdf_path,'rb') as f:
+        reader = PdfReader(f)
+        for page_num in range(0, len(reader.pages)):
+            selected_page = reader.pages[page_num]
+            
+
+
+
 # 1 - Buscando Dados e Metadados de um arquivo PDF
 # print(get_pdf_metadata('files/Diploma.pdf'))
 # print(get_pdf_metadata('files/Diploma.pdf'))
