@@ -79,7 +79,12 @@ def extract_images_from_pdf(pdf_path):
         reader = PdfReader(f)
         for page_num in range(0, len(reader.pages)):
             selected_page = reader.pages[page_num]
-            
+            # print(selected_page.images)
+            for img_file_obj in selected_page.images:
+                with open(f'files/{img_file_obj.name}', 'wb') as out:
+                    out.write(img_file_obj.data)
+                    
+                          
 
 
 
@@ -97,7 +102,10 @@ def extract_images_from_pdf(pdf_path):
 
 
 # Unido os PDFS
-merge_pdf(['files/page_1.pdf','files/page_1.pdf'])
+# merge_pdf(['files/page_1.pdf','files/page_1.pdf'])
 
 # 5 - Rotacionando PDF
-rotate_pdf('files/page_1.pdf', 0, 180)
+# rotate_pdf('files/page_1.pdf', 0, 180)
+
+# 6 - Extraindo Imagem em PDF
+extract_images_from_pdf('files/chart.pdf')
