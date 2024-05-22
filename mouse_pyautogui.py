@@ -5,3 +5,6 @@ print(pyautogui.size())
 
 # 2 - Pegar a posição atual do cursor
 print(pyautogui.position())
+
+# 3 - Movendo o cursor do mouse
+pyautogui.moveTo(1751, 33)
