@@ -11,3 +11,12 @@ time.sleep(1)
 pyautogui.hotkey('crtl', 'shift', 'esc')
 
 # Utilizando o teclado virtual
+time.sleep(1)
+with pyautogui.hold('winleft'):
+    pyautogui.press('left')
+
+time.sleep(2)
+pyautogui.click()
+time.sleep(2)
+with pyautogui.hold('winleft'):
+    pyautogui.press('rigth')

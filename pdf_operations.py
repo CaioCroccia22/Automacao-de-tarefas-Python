@@ -45,7 +45,7 @@ def split_pdf_page(pdf_path,start_page:int=0, stop_page:int=0):
             filename = os.path.split(pdf_path)[1]
             # print(start_page)
             # print(stop_page)
-            new_filename = f'files/{filename}_from_{start_page}_to_{stop_page}.pdf'
+            new_filename = f'PDF Bianco/{filename}_from_{start_page}_to_{stop_page}.pdf'
             with open(new_filename, 'wb') as out:
                 writer.write(out)
 
@@ -98,7 +98,7 @@ def extract_images_from_pdf(pdf_path):
 
 
 # 3 - Dividindo o PDF por página selecionada
-# split_pdf_page('files/Diploma.pdf',1,2)
+split_pdf_page('PDF Bianco/Bianco_pdf.pdf',221,530)
 
 
 # Unido os PDFS
@@ -108,4 +108,4 @@ def extract_images_from_pdf(pdf_path):
 # rotate_pdf('files/page_1.pdf', 0, 180)
 
 # 6 - Extraindo Imagem em PDF
-extract_images_from_pdf('files/chart.pdf')
+# extract_images_from_pdf('files/chart.pdf')
